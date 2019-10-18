@@ -2,8 +2,6 @@ import moment from 'moment';
 
 export default class GitlabIssue {
   constructor(data) {
-    // console.log('GitlabIssue');
-    // console.log(data);
     this.id = data.hasOwnProperty('id') ? GitlabIssue.getIdByIssuesUrl(data.id._text) : null;
     this.link = data.hasOwnProperty('link') ? data.link._attributes._href : null;
     this.title = data.hasOwnProperty('title') ? data.title._text : null;
@@ -13,8 +11,6 @@ export default class GitlabIssue {
     this.labels = data.hasOwnProperty('labels') ? GitlabIssue.transformLabels(data.labels) : null;
     this.description = data.hasOwnProperty('description') ? data.description._text : null;
     this.assignee = data.hasOwnProperty('assignee') ? GitlabIssue.transformAssignee(data.assignee) : null;
-
-    console.log(this);
   }
 
   static getIdByIssuesUrl(url) {

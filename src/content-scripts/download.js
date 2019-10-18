@@ -15,7 +15,7 @@ window.URL = window.URL || window.webkitURL;
   fetchIssuesList.then(issuesList => {
     console.log(issuesList);
     console.log('csv');
-    stringify(issuesList, { header: true, columns: { id: 'id', title: 'title' } }, (err, output) => {
+    stringify(issuesList, { header: true, columns: { id: 'id', title: 'title', labels: 'labels' } }, (err, output) => {
       if (err) {
         // TODO: display error message
         return;
